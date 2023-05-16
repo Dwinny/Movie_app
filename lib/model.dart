@@ -4,9 +4,11 @@
 
 import 'dart:convert';
 
-List<MovieApp> movieAppFromJson(String str) => List<MovieApp>.from(json.decode(str));
+List<MovieApp> movieAppFromJson(String str) =>
+    List<MovieApp>.from(json.decode(str).map((x) => MovieApp.fromJson(x)));
 
-String movieAppToJson(List<MovieApp> data) => json.encode(List<dynamic>.from(data.toJson()));
+String movieAppToJson(List<MovieApp> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class MovieApp {
   MovieApp({

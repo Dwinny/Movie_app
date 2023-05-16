@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'Screens/Homepage.dart';
 import 'Screens/categoryPage.dart';
 import 'Screens/moviepage.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(MaterialApp(
