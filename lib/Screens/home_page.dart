@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/Services/api_service.dart';
 import 'package:movie_app/model.dart';
-import 'package:movie_app/widgets/Upcoming_list.dart';
-import '../widgets/upcomingMovie.dart';
-import '../widgets/NewMovie.dart';
-import '../widgets/NewMoviewidget.dart';
-import '../widgets/Texformfield.dart';
+// import 'package:movie_app/widgets/NewMovie.dart';
+import 'package:movie_app/widgets/new_movie.dart';
+
+import 'package:movie_app/widgets/upcoming_list.dart';
+import '../widgets/upcoming_movie.dart';
+
+import '../widgets/new_movie_widget.dart';
+import '../widgets/tex_formfield.dart';
 import '../widgets/customnav.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,15 +19,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late Future<List<MovieApp>?> userMovie;
+  Future?  userMovie;
   @override
   void initState() {
-    // TODO: implement initState
+   
     super.initState();
     userMovie = getMoviesData();
   }
 
-  Future<List<MovieApp>?> getMoviesData() async {
+  Future getMoviesData() async {
     var movies = await APIService().getMovies();
     return movies;
   }
@@ -43,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: const [
                       Text(
                         'Hello Chioma',
                         style: TextStyle(
@@ -57,44 +60,44 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ],
                   ),
-                  CircleAvatar(
+                  const CircleAvatar(
                     backgroundColor: Colors.red,
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Textformfield(),
-              SizedBox(
+              const Textformfield(),
+              const SizedBox(
                 height: 30,
               ),
-              Upcoming(),
-              SizedBox(
+              const Upcoming(),
+              const SizedBox(
                 height: 10,
               ),
               SizedBox(
                   height: 200,
-                  child: FutureBuilder<List<MovieApp>?>(
+                  child: FutureBuilder(
                       future: userMovie,
                       builder: (context, snapshot) {
                         switch (snapshot.connectionState) {
                           case ConnectionState.waiting:
-                            return Center(
-                                child: const CircularProgressIndicator());
+                            return const Center(
+                                child: CircularProgressIndicator());
                           case ConnectionState.done:
                           default:
                             if (snapshot.hasError) {
                               final error = snapshot.error;
                               return Text('$error');
                             } else if (snapshot.hasData) {
-                              dynamic data = snapshot.data!;
+                             
                               return ListView.builder(
-                                itemCount: data.length,
+                                itemCount: snapshot.data!.length,
                                 shrinkWrap: true,
                                 scrollDirection: Axis.horizontal,
                                 itemBuilder: (BuildContext context, int index) {
-                                  return Moviewidget();
+                                  return const Moviewidget();
                                 },
                               );
                             } else {
@@ -102,15 +105,15 @@ class _HomePageState extends State<HomePage> {
                             }
                         }
                       })),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              NewMovie(),
-              SizedBox(
+              const NewMovie(),
+              const SizedBox(
                 height: 15,
               ),
               Expanded(
-                child: FutureBuilder<List<MovieApp>?>(
+                child: FutureBuilder(
                     future: userMovie,
                     builder: (context, snapshot) {
                       switch (snapshot.connectionState) {
@@ -128,7 +131,7 @@ class _HomePageState extends State<HomePage> {
                               itemCount: data.length,
                               shrinkWrap: true,
                               itemBuilder: (BuildContext context, int index) {
-                                return newMovieupdate();
+                                return const NewMovieupdate();
                               },
                             );
                           } else {
@@ -141,7 +144,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      bottomNavigationBar: Customnavbar(),
+      bottomNavigationBar: const Customnavbar(),
     );
   }
 }

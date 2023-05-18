@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Moviewidget extends StatelessWidget {
-  const Moviewidget({super.key});
+class NewMovieupdate extends StatelessWidget {
+  const NewMovieupdate({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,10 +12,11 @@ class Moviewidget extends StatelessWidget {
           Navigator.pushNamed(context, 'moviePage');
         },
         child: Container(
-          height: 180,
-          width: 180,
+          margin: const EdgeInsets.only(left: 10),
+          height: 300,
+          width: 150,
           color: Colors.blue,
-          child: Text('BLUE'),
+          child: const Text('BLUE'),
         ),
       ),
     );

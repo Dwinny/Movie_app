@@ -7,7 +7,7 @@ class NewMovie extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
+      children: const [
         Text(
           'New Movies',
           style: TextStyle(

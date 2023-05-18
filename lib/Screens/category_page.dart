@@ -1,29 +1,28 @@
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/material.dart';
 
 import '../Services/api_service.dart';
 import '../model.dart';
-import '../widgets/NewMovie.dart';
 import '../widgets/category.dart';
 import '../widgets/customnav.dart';
 
 class CategoryPage extends StatefulWidget {
+  const CategoryPage({super.key});
+
   @override
   State<CategoryPage> createState() => _CategoryPageState();
 }
 
 class _CategoryPageState extends State<CategoryPage> {
-  late Future<List<MovieApp>?> userMovie;
+  Future? userMovie;
 
   @override
   void initState() {
-    // TODO: implement initState
+  
     super.initState();
     userMovie = getMoviesData();
   }
 
-  Future<List<MovieApp>?> getMoviesData() async {
+  Future getMoviesData() async {
     var movies = await APIService().getMovies();
     return movies;
   }
@@ -37,7 +36,7 @@ class _CategoryPageState extends State<CategoryPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -46,16 +45,16 @@ class _CategoryPageState extends State<CategoryPage> {
                       // to go back to the page
                       Navigator.pop(context);
                     },
-                    child: Icon(
+                    child: const Icon(
                       Icons.arrow_back,
                       color: Colors.white,
                       size: 30,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
-                  Text(
+                  const Text(
                     'Discover',
                     style: TextStyle(
                         color: Colors.white,
@@ -66,14 +65,14 @@ class _CategoryPageState extends State<CategoryPage> {
               ),
             ),
             Padding(
-                padding: EdgeInsets.symmetric(vertical: 10),
-                child: FutureBuilder<List<MovieApp>?>(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: FutureBuilder(
                     future: userMovie,
                     builder: (context, snapshot) {
                       switch (snapshot.connectionState) {
                         case ConnectionState.waiting:
-                          return Center(
-                              child: const CircularProgressIndicator());
+                          return const Center(
+                              child: CircularProgressIndicator());
                         case ConnectionState.done:
                         default:
                           if (snapshot.hasError) {
@@ -85,7 +84,7 @@ class _CategoryPageState extends State<CategoryPage> {
                               itemCount: data.length,
                               shrinkWrap: true,
                               itemBuilder: (BuildContext context, int index) {
-                                return ListTile(
+                                return const ListTile(
                                   leading: Category(),
                                   title: Text('Category'),
                                   trailing: Icon(Icons.arrow_back_ios),
@@ -100,7 +99,7 @@ class _CategoryPageState extends State<CategoryPage> {
           ],
         )),
       ),
-      bottomNavigationBar: Customnavbar(),
+      bottomNavigationBar: const Customnavbar(),
     );
   }
 }

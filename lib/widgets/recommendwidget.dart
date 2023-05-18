@@ -11,7 +11,7 @@ class RecommendWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+            children: const [
               Text(
                 'Recommended',
                 style: TextStyle(
@@ -29,7 +29,7 @@ class RecommendWidget extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 15,
         ),
         SizedBox(
@@ -40,8 +40,8 @@ class RecommendWidget extends StatelessWidget {
               ListView(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
-                padding: EdgeInsets.all(20),
-                children: [
+                padding: const EdgeInsets.all(20),
+                children: const [
                   RecommendedMovies(Colors.blue),
                   RecommendedMovies(Colors.red),
                   RecommendedMovies(Colors.green),
@@ -58,7 +58,7 @@ class RecommendWidget extends StatelessWidget {
 
 class RecommendedMovies extends StatelessWidget {
   final Color colors;
-  RecommendedMovies(this.colors);
+  const RecommendedMovies(this.colors, {super.key});
 
   @override
   Widget build(BuildContext context) {

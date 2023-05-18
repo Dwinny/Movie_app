@@ -8,12 +8,12 @@ class Category extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        margin: EdgeInsets.only(left: 10),
+        margin: const EdgeInsets.only(left: 10),
         height: 70,
         width: 90,
         //fit: BoxFit.cover
         color: Colors.blue,
-        child: Text('BLUE'),
+        child: const Text('BLUE'),
       ),
     );
   }

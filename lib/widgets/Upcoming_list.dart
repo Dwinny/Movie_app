@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 class Upcoming extends StatelessWidget {
@@ -9,7 +11,7 @@ class Upcoming extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
+      children: const [
         Text(
           'Upcoming Movies',
           style: TextStyle(

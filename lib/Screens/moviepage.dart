@@ -25,7 +25,7 @@ class MoviePage extends StatelessWidget {
                 child: Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -33,7 +33,7 @@ class MoviePage extends StatelessWidget {
                         onTap: () {
                           Navigator.pop(context);
                         },
-                        child: Icon(
+                        child: const Icon(
                           Icons.arrow_back_ios,
                           color: Colors.white,
                           size: 30,
@@ -41,7 +41,7 @@ class MoviePage extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () {},
-                        child: Icon(
+                        child: const Icon(
                           Icons.favorite_border,
                           color: Colors.white,
                           size: 35,
@@ -50,7 +50,7 @@ class MoviePage extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 60,
                 ),
                 Padding(
@@ -72,7 +72,7 @@ class MoviePage extends StatelessWidget {
                             ]),
                       ),
                       Container(
-                        margin: EdgeInsets.only(right: 50, top: 70),
+                        margin: const EdgeInsets.only(right: 50, top: 70),
                         height: 80,
                         width: 80,
                         decoration: BoxDecoration(
@@ -84,7 +84,7 @@ class MoviePage extends StatelessWidget {
                                   spreadRadius: 2,
                                   blurRadius: 8),
                             ]),
-                        child: Icon(
+                        child: const Icon(
                           Icons.play_arrow,
                           color: Colors.white,
                           size: 60,
@@ -93,11 +93,11 @@ class MoviePage extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
-                MoviePageButtons(),
-                SizedBox(
+                const MoviePageButtons(),
+                const SizedBox(
                   height: 15,
                 ),
                 Padding(
@@ -105,7 +105,7 @@ class MoviePage extends StatelessWidget {
                       const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: const [
                       Text(
                         'Colour Blue 1',
                         style: TextStyle(
@@ -127,16 +127,16 @@ class MoviePage extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                RecommendWidget(),
+                const RecommendWidget(),
               ],
             )),
           )
         ],
       ),
-      bottomNavigationBar: Customnavbar(),
+      bottomNavigationBar: const Customnavbar(),
     );
   }
 }

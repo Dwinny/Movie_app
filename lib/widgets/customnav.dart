@@ -7,8 +7,8 @@ class Customnavbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 65,
-      padding: EdgeInsets.symmetric(horizontal: 20),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      decoration: const BoxDecoration(
           color: Color(0xFF292037),
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(25), topRight: Radius.circular(25))),
@@ -20,7 +20,7 @@ class Customnavbar extends StatelessWidget {
               // Navigate to Home page
               Navigator.pushNamed(context, '/');
             },
-            child: Icon(
+            child: const Icon(
               Icons.home,
               size: 35,
               color: Colors.white,
@@ -30,7 +30,7 @@ class Customnavbar extends StatelessWidget {
             onTap: () {
               Navigator.pushNamed(context, 'categoryPage');
             },
-            child: Icon(
+            child: const Icon(
               Icons.category,
               size: 35,
               color: Colors.white,
@@ -40,7 +40,7 @@ class Customnavbar extends StatelessWidget {
             onTap: () {
               Navigator.pushNamed(context, 'moviePage');
             },
-            child: Icon(
+            child: const Icon(
               Icons.favorite_border,
               size: 35,
               color: Colors.white,
@@ -48,7 +48,7 @@ class Customnavbar extends StatelessWidget {
           ),
           InkWell(
             onTap: () {},
-            child: Icon(
+            child: const Icon(
               Icons.person,
               size: 35,
               color: Colors.white,
